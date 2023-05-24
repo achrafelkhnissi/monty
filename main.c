@@ -1,23 +1,6 @@
 #include "monty.h"
 
 
-void print_line(void)
-{
-	int i;
-
-	for (i = 0; global.line[i]; i++) {
-		if (global.line[i][0] == '\0') {
-			printf("[%d]: %s\n", i, "\\0");
-		} else if (global.line[i][0] == '\n') {
-			printf("[%d]: %s\n", i, "\n");
-		} else {
-			printf("[%d]: %s\n", i, global.line[i]);
-		}
-	}
-
-	printf("\n");
-}
-
 /**
  * main - entry point
  * @ac: number of arguments

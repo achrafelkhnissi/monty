@@ -40,7 +40,16 @@ typedef struct instruction_s
 	void (*f)(_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Global Variable */
+
+/**
+ * struct global_s - global variables
+ * @file: file descriptor
+ * @line: line read from file
+ * @line_number: line number
+ * @stack: stack
+ *
+ * Description: global variables
+ */
 typedef struct global_s
 {
 	FILE *file;

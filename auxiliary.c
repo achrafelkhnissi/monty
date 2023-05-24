@@ -1,6 +1,6 @@
 #include "monty.h"
 
-/*
+/**
  * is_number - checks if a string is a number
  * @str: string to check
  * Return: 1 if true, 0 if false

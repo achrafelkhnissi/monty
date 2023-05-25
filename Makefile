@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99
+CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99 -g
 
-SRC=main.c instructions.c auxiliary.c
+SRC=main.c instructions.c extra_instructions.c auxiliary.c
 INC=monty.h
 
 NAME=monty

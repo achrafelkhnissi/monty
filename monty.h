@@ -26,6 +26,23 @@ typedef struct stack_s
 	struct stack_s *next;
 } _stack_t;
 
+
+/**
+ * struct queue_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ * @is_stack: 1 if stack, 0 if queue
+ */
+typedef struct queue_s
+{
+	int n;
+	struct queue_s *prev;
+	struct queue_s *next;
+	int is_stack;
+} _queue_t;
+
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -75,5 +92,16 @@ void _pop(_stack_t **stack, unsigned int line_number);
 void _swap(_stack_t **stack, unsigned int line_number);
 void _add(_stack_t **stack, unsigned int line_number);
 void _nop(_stack_t **stack, unsigned int line_number);
+void _sub(_stack_t **stack, unsigned int line_number);
+void _div(_stack_t **stack, unsigned int line_number);
+void _mul(_stack_t **stack, unsigned int line_number);
+void _mod(_stack_t **stack, unsigned int line_number);
+void _pchar(_stack_t **stack, unsigned int line_number);
+void _pstr(_stack_t **stack, unsigned int line_number);
+void _rotl(_stack_t **stack, unsigned int line_number);
+void _rotr(_stack_t **stack, unsigned int line_number);
+void _stack(_stack_t **stack, unsigned int line_number);
+void _queue(_stack_t **stack, unsigned int line_number);
+
 
 #endif /* MONTY_H */

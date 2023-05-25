@@ -9,15 +9,14 @@
 */
 int main(int ac, char **av)
 {
-	FILE *file = NULL;
 	char *line = NULL;
 	size_t len = 0;
-	ssize_t read = 0;
-	unsigned int line_number = 0;
+	ssize_t read;
 
 	global.line = NULL;
 	global.file = NULL;
 	global.stack = NULL;
+	global.line_number = 0;
 
 	if (ac != 2)
 	{
@@ -25,25 +24,30 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	file = fopen(av[1], "r");
-	if (file == NULL)
+	global.file = fopen(av[1], "r");
+	if (global.file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	global.file = file;
+	global.file = global.file;
 
-	while ((read = getline(&line, &len, file)) != -1)
+	while ((read = getline(&line, &len, global.file)) != -1)
 	{
-		line_number++;
+		global.line_number++;
+
+		if (line[0] == '\n')
+			continue;
 		global.line = split(line, " \n\t\r");
+
 		if (global.line[0] != NULL)
-			get_op_func(global.line[0])(&global.stack, line_number);
+			get_op_func(global.line[0])(&global.stack, global.line_number);
+
 		free(global.line);
 	}
 
 	free(line);
-	free_all(global.stack, file);
+	free_all(global.stack, global.file);
 	return (EXIT_SUCCESS);
 }

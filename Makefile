@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99 -g
+CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99 # -g
 
 SRC=main.c instructions.c extra_instructions.c auxiliary.c
 INC=monty.h

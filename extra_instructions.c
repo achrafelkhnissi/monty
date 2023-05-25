@@ -33,3 +33,25 @@ void _add(_stack_t **stack, unsigned int line_number)
 	_pop(stack, line_number);
 	(*stack)->n = sum;
 }
+
+/**
+ * _sub - subtracts the top element of the stack from the second top element
+ * @stack: pointer to the stack
+ * @line_number: line number
+ * Return: void
+ */
+void _sub(_stack_t **stack, unsigned int line_number)
+{
+	int sub;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		free_all(*stack, global.file);
+		exit(EXIT_FAILURE);
+	}
+
+	sub = (*stack)->next->n - (*stack)->n;
+	_pop(stack, line_number);
+	(*stack)->n = sub;
+}

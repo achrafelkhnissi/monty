@@ -84,7 +84,6 @@ void _pstr(_stack_t **stack, unsigned int line_number)
  */
 void _rotl(_stack_t **stack, unsigned int line_number)
 {
-	_stack_t *tmp = *stack;
 	int n;
 
 	(void)line_number;

@@ -37,11 +37,8 @@ int main(int ac, char **av)
 	{
 		global.line_number++;
 
-		if (line[0] == '\n')
-			continue;
 		global.line = split(line, " \n\t\r");
-
-		if (global.line[0] != NULL)
+		if (global.line != NULL && global.line[0] != NULL)
 			get_op_func(global.line[0])(&global.stack, global.line_number);
 
 		free(global.line);

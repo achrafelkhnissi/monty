@@ -37,8 +37,6 @@ int main(int ac, char **av)
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_number++;
-		if (line[0] == '\n')
-			continue;
 		global.line = split(line, " \n\t\r");
 		if (global.line[0] != NULL)
 			get_op_func(global.line[0])(&global.stack, line_number);

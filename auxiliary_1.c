@@ -76,6 +76,7 @@ void (*get_op_func(char *s))(_stack_t **stack, unsigned int line_number)
 		{"rotr", _rotr},
 		{"#", _nop},
 		{"", _nop},
+		{"\n", _nop},
 		{NULL, NULL}
 	};
 	int i;
